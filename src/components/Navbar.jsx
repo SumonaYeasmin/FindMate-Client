@@ -12,7 +12,6 @@ const Navbar = () => {
                 <NavLink to="/lost-items" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base md:text-lg lg:text-sm 2xl:text-lg' : ''}>Lost Items</NavLink>
             </li>
         </div>
-
     );
 
     return (
@@ -70,10 +69,9 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
+                <NavLink to={'/login'} className={"btn"}>Login</NavLink>
             </div>
         </div>
-
-
     );
 };
 

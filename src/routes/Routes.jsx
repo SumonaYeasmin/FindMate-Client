@@ -7,6 +7,8 @@ import LostItems from "../pages/LostItems";
 import FoundItems from "../pages/FoundItems";
 import AddItems from "../pages/AddItems";
 import AllRecoverd from "../pages/AllRecoverd";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
   const router = createBrowserRouter([
     {
@@ -33,6 +35,14 @@ import AllRecoverd from "../pages/AllRecoverd";
             path: "/all-recoverd",
             element: <AllRecoverd />
         },
+        {
+            path: '/login',
+            element: <Login />
+        },
+        {
+            path: '/register',
+            element: <Register />
+        }
       ] 
     },
   ]); 
