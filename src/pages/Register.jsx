@@ -25,9 +25,6 @@ const Register = () => {
                     </label>
                     <input type="text" id="name" name="name" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your name" required />
                 </div>
-
-
-
                 {/* Photo URL Field */}
                 <div>
                     <label htmlFor="photoURL" className="block text-gray-700">
