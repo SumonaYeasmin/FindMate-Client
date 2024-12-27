@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { loginWithGoogle, creatUser, updateProfileInfo } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -43,7 +44,7 @@ const Register = () => {
             .then(result => {
                 // console.log(result.user);
                 toast.success("Login With Google Successful!");
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 // console.log(error.message);

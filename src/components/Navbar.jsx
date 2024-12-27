@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 
 
 const Navbar = () => {
@@ -53,7 +54,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-3xl">WhereIsIt</a>
+                <a className="btn btn-ghost text-3xl">FindMate</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -64,10 +65,16 @@ const Navbar = () => {
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            {
+                                user && <img
+                                    data-tooltip-id="my-tooltip-1"
+                                    alt="Photo"
+                                    src={
+                                        user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                    } />
+                            }
                         </div>
+
                     </div>
                     <ul
                         tabIndex={0}
@@ -83,6 +90,13 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
+                <Tooltip
+                    id="my-tooltip-1"
+                    place="bottom"
+                    variant="info"
+                    content={user?.displayName || 'Anonymous User'}
+                    className="z-50"
+                />
                 {
                     user ?
                         <button onClick={handleLogOut} className="btn text-sm md:text-lg px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-600 hover:to-indigo-600 rounded-lg hover:text-white transform transition duration-300 font-semibold">Log Out</button>

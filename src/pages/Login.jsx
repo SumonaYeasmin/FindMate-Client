@@ -30,7 +30,7 @@ const Login = () => {
             .then(result => {
                 // console.log(result.user);
                 toast.success("Login With Google Successful!");
-                // navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 // console.log(error.message);
