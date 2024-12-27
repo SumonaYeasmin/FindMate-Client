@@ -1,7 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import { toast } from "react-toastify";
 
 
 const Navbar = () => {
+    const { user, userLogOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        userLogOut()
+            .then(() => {
+                toast.success("User Logout Successful.");
+            })
+            .catch(error => {
+                toast.error(error.code);
+            })
+    }
 
     const links = (
         <div className="lg:flex gap-3 lg:gap-0 xl:gap-0 text-base md:text-lg lg:text-sm 2xl:text-lg font-semibold">
@@ -69,7 +83,12 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <NavLink to={'/login'} className={"btn"}>Login</NavLink>
+                {
+                    user ?
+                        <button onClick={handleLogOut} className="btn text-sm md:text-lg px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-600 hover:to-indigo-600 rounded-lg hover:text-white transform transition duration-300 font-semibold">Log Out</button>
+                        :
+                        <Link to="/login" className="text-sm md:text-lg btn px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-600 hover:to-indigo-600 rounded-lg hover:text-white transform transition duration-300 font-semibold">Login</Link>
+                }
             </div>
         </div>
     );
