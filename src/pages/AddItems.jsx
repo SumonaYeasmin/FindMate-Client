@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../context/AuthProvider";
+import { toast } from "react-toastify";
 
 
 const AddItems = () => {
@@ -14,6 +15,23 @@ const AddItems = () => {
         const form = new FormData(e.target);
         const initialData = Object.fromEntries(form.entries());
         console.log(initialData);
+
+        fetch("http://localhost:5000/items", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(initialData),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.insertedId) {
+                    toast.success("Items added successfully in the database!");
+                }
+            })
+            .catch((error) => {
+                toast.error(`Failed to create items: ${error.message}`);
+            });
     };
 
     return (

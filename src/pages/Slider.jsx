@@ -48,10 +48,10 @@ const Slider = () => {
                             className="w-full h-full"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center w-full h-full">
-                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-green-400 to-blue-600 drop-shadow-lg text-center">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text drop-shadow-lg text-center">
                                 Report Items You Found
                             </h2>
-                            <p className="text-xl font-semibold md:text-xl text-green-600 mt-2 drop-shadow-lg text-center">
+                            <p className="text-xl font-semibold md:text-xl mt-2 drop-shadow-lg text-center">
                                 Help others recover their lost possessions by reporting what you’ve found.
                             </p>
                         </div>
