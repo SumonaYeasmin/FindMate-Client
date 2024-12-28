@@ -3,12 +3,15 @@ import {
   } from "react-router-dom";
 import MainLayouts from "../layouts/MainLayouts";
 import Home from "../pages/Home";
-import LostItems from "../pages/LostItems";
-import FoundItems from "../pages/FoundItems";
-import AddItems from "../pages/AddItems";
-import AllRecoverd from "../pages/AllRecoverd";
+
+import ManageMyItems from "../pages/ManageMyItems";
+
+import AllRecoverdItems from "../pages/AllRecoverdItems";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import AddLostAndFoundItem from "../pages/AddLostAndFoundItem";
+import LostAndFoundItems from "../pages/LostAndFoundItems";
+import ItemDetails from "../pages/ItemDetails";
 
   const router = createBrowserRouter([
     {
@@ -20,20 +23,28 @@ import Register from "../pages/Register";
             element: <Home />
         },
         {
-            path: "/lost-items",
-            element: <LostItems></LostItems>
+            path: "/myItems",
+            element:  <ManageMyItems></ManageMyItems>
         },
         {
-            path: "/found-items",
-            element: <FoundItems />
+            path: "/allItems",
+            element:  <LostAndFoundItems />,
+            loader: ()=> fetch('http://localhost:5000/allItems')
+        },
+      
+      
+        {
+            path: "/addItems",
+            element: <AddLostAndFoundItem></AddLostAndFoundItem>
         },
         {
-            path: "/add-items",
-            element: <AddItems />
+            path: "/allRecovered",
+            element: <AllRecoverdItems />
         },
         {
-            path: "/all-recoverd",
-            element: <AllRecoverd />
+          path: "/items/:id",
+          element: <ItemDetails />,
+          loader: ({params})=>fetch(`http://localhost:5000/allItems/${params.id}`)
         },
         {
             path: '/login',

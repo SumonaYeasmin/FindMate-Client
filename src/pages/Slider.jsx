@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -16,7 +14,7 @@ const Slider = () => {
                 modules={[Navigation, Pagination, Autoplay]}
                 navigation
                 pagination={{ clickable: true }}
-                autoplay={{ delay: 2000, pauseOnMouseEnter: true }}
+                autoplay={{ delay: 3000, pauseOnMouseEnter: true }}
                 loop={true}
                 spaceBetween={20}
                 slidesPerView={1}
@@ -26,14 +24,14 @@ const Slider = () => {
                 <SwiperSlide>
                     <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
                         <img
-                            src="https://i.ibb.co/WWxzxk0/crowdfunding-isometric-concept-with-money-donation-fundraising-symbols-vector-illustration-1284-7831.jpg"
-                            className="w-full h-full"
+                            src="https://i.ibb.co.com/Nt9QthK/stock-photo-inspiration-showing-sign-lost-found-business-overview-things-left-may-1.jpg"
+                            className="w-full h-full object-cover"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center h-full w-full">
-                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-700 drop-shadow-lg text-center">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text text-white drop-shadow-lg text-center">
                                 Reconnect with Your Lost Belongings
                             </h2>
-                            <p className="text-xl font-semibold md:text-xl text-black mt-2 drop-shadow-lg text-center">
+                            <p className="text-xl font-semibold md:text-xl text-white mt-2 drop-shadow-lg text-center">
                                 Join our community to find and return lost items easily and securely.
                             </p>
                         </div>
@@ -44,14 +42,14 @@ const Slider = () => {
                 <SwiperSlide>
                     <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
                         <img
-                            src="https://i.ibb.co/31FsCRX/istockphoto-1219719980-612x612.jpg"
-                            className="w-full h-full"
+                            src="https://i.ibb.co.com/Wng4fhk/360-F-129739783-COm-Us-Upok-VIc-IAw-Lq4a-Ut-Vl-C5-Gf573-J9.jpg"
+                            className="w-full h-full object-cover"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center w-full h-full">
-                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text drop-shadow-lg text-center">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent text-white bg-clip-text drop-shadow-lg text-center">
                                 Report Items You Found
                             </h2>
-                            <p className="text-xl font-semibold md:text-xl mt-2 drop-shadow-lg text-center">
+                            <p className="text-xl font-semibold md:text-xl mt-2 drop-shadow-lg text-white text-center">
                                 Help others recover their lost possessions by reporting what you’ve found.
                             </p>
                         </div>
@@ -62,15 +60,33 @@ const Slider = () => {
                 <SwiperSlide>
                     <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
                         <img
-                            src="https://i.ibb.co/3FQQqwR/book-close-up-coffee-contemporary.jpg"
-                            className="w-full h-full"
+                            src="https://i.ibb.co.com/qsJJ3s9/360-F-278411757-vm-A15-VKz-UMNSt9-KTQqha-Yh-MJHAit-Wrr-H.jpg"
+                            className="w-full h-full object-cover"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center w-full h-full">
-                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-800 via-purple-600 to-blue-700 drop-shadow-lg text-center">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text text-white drop-shadow-lg text-center">
                                 Find What Matters Most
                             </h2>
-                            <p className="text-xl font-bold md:text-xl text-black mt-2 drop-shadow-lg text-center">
+                            <p className="text-xl font-bold md:text-xl mt-2 drop-shadow-lg text-white text-center">
                                 Whether it’s a lost pet, a precious item, or a document—find it here!
+                            </p>
+                        </div>
+                    </div>
+                </SwiperSlide>
+
+                {/* Slide 4 */}
+                <SwiperSlide>
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
+                        <img
+                            src="https://i.ibb.co.com/NpCCrw6/istockphoto-173017288-612x612.jpg"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center w-full h-full">
+                            <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 drop-shadow-lg text-center">
+                                Together, We Can Make a Difference
+                            </h2>
+                            <p className="text-xl font-semibold md:text-xl  mt-2 drop-shadow-lg text-center text-white">
+                                Be a part of our mission to connect people with their lost and found treasures.
                             </p>
                         </div>
                     </div>

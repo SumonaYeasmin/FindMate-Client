@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
 
 
-const AddItems = () => {
+const AddLostAndFoundItem = () => {
     const { user } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
 
@@ -16,7 +16,7 @@ const AddItems = () => {
         const initialData = Object.fromEntries(form.entries());
         console.log(initialData);
 
-        fetch("http://localhost:5000/items", {
+        fetch("http://localhost:5000/allItems", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -173,4 +173,4 @@ const AddItems = () => {
     );
 };
 
-export default AddItems;
+export default AddLostAndFoundItem;

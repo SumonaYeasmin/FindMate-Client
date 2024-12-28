@@ -1,6 +1,6 @@
 
 
-const AllRecoverd = () => {
+const AllRecoverdItems = () => {
     return (
         <div>
             all reocver
@@ -8,4 +8,4 @@ const AllRecoverd = () => {
     );
 };
 
-export default AllRecoverd;
+export default AllRecoverdItems;
