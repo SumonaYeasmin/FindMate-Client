@@ -12,6 +12,7 @@ import Register from "../pages/Register";
 import AddLostAndFoundItem from "../pages/AddLostAndFoundItem";
 import LostAndFoundItems from "../pages/LostAndFoundItems";
 import ItemDetails from "../pages/PostDetails";
+import UpdateItems from "../pages/UpdateItems";
 
   const router = createBrowserRouter([
     {
@@ -43,6 +44,11 @@ import ItemDetails from "../pages/PostDetails";
         {
           path: "/items/:id",
           element: <ItemDetails />,
+          loader: ({params})=>fetch(`http://localhost:5000/allItems/${params.id}`)
+        },
+        {
+          path: '/updatedItems/:id',
+          element: <UpdateItems />,
           loader: ({params})=>fetch(`http://localhost:5000/allItems/${params.id}`)
         },
         {

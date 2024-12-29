@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -90,12 +90,13 @@ const ManageMyItems = () => {
                                     <td className="px-4 py-4 text-sm text-gray-700">{item.category}</td>
                                     <td className="px-4 py-4 text-sm text-gray-700">{item.location}</td>
                                     <td className="px-4 py-4 text-sm text-gray-700">
-                                        <button
-                                            className="text-blue-500 hover:text-blue-700 mr-2"
-                                            onClick={() => alert("Edit functionality will be here")}
-                                        >
-                                            Update
-                                        </button>
+                                        <Link to={`/updatedItems/${item._id}`}>
+                                            <button
+                                                className="text-blue-500 hover:text-blue-700 mr-2"
+                                            >
+                                                Update
+                                            </button>
+                                        </Link>
                                         <button
                                             onClick={() => handleDelete(item._id)}
                                             className="text-red-500 hover:text-red-700"

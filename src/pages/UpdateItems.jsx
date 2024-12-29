@@ -1,36 +1,39 @@
-import { useContext, useState } from "react";
-import DatePicker from "react-datepicker";
+import React, { useContext, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import { useLoaderData } from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
-import { AuthContext } from "../context/AuthProvider";
-import { toast } from "react-toastify";
+import { AuthContext } from '../context/AuthProvider';
+import { toast } from 'react-toastify';
 
+const UpdateItems = () => {
 
-const AddLostAndFoundItem = () => {
-    const { user } = useContext(AuthContext);
-    const [startDate, setStartDate] = useState(new Date());
+    const loaderData = useLoaderData();
+    const [startDate, setStartDate] = useState(loaderData.date);
+    // console.log(loaderData);
+    const { _id, category, contactEmail, contactName, description, location, postType, thumbnail, title, date } = loaderData;
 
-    const handleSubmit = (e) => {
+    const handleUpdated = (e) => {
         e.preventDefault();
-        // console.log("Form Submitted");
         const form = new FormData(e.target);
-        const initialData = Object.fromEntries(form.entries());
-        // console.log(initialData);
-
-        fetch("http://localhost:5000/allItems", {
-            method: "POST",
+        const updatedData = Object.fromEntries(form.entries());
+        console.log(updatedData);
+        fetch(`http://localhost:5000/allItems/${_id}`, {
+            method: 'PATCH',
             headers: {
-                "content-type": "application/json",
+                'content-type': 'application/json',
             },
-            body: JSON.stringify(initialData),
+            body: JSON.stringify(updatedData),
         })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.insertedId) {
-                    toast.success("Items added successfully in the database!");
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success('Item updated successfully!');
                 }
             })
-            .catch((error) => {
-                toast.error(`Failed to create items: ${error.message}`);
+            .catch(error => {
+                console.error(error);
+                toast.error(`Failed to update items: ${error.code}`);
             });
     };
 
@@ -38,19 +41,18 @@ const AddLostAndFoundItem = () => {
         <div className="min-h-screen flex items-center justify-center  py-6">
             <div className="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-xl">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">
-                    Add Lost & Found Item
+                    Updated Items
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleUpdated} className="space-y-6">
                     {/* Post Type */}
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Post Type</label>
                         <select
                             name="postType"
                             required
-                            defaultValue=''
+                            defaultValue={postType}
                             className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         >
-                            <option disabled value="">Select post type</option>
                             <option value="Lost">Lost</option>
                             <option value="Found">Found</option>
                         </select>
@@ -63,6 +65,7 @@ const AddLostAndFoundItem = () => {
                             type="url"
                             name="thumbnail"
                             placeholder="Enter image URL"
+                            defaultValue={thumbnail}
                             required
                             className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         />
@@ -75,6 +78,7 @@ const AddLostAndFoundItem = () => {
                             type="text"
                             name="title"
                             placeholder="Enter title"
+                            defaultValue={title}
                             required
                             className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         />
@@ -86,6 +90,7 @@ const AddLostAndFoundItem = () => {
                         <textarea
                             name="description"
                             placeholder="Enter description"
+                            defaultValue={description}
                             rows="4"
                             required
                             className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
@@ -98,10 +103,9 @@ const AddLostAndFoundItem = () => {
                         <select
                             name="category"
                             required
-                            defaultValue=""
+                            defaultValue={category}
                             className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         >
-                            <option disabled value="">Select Category</option>
                             <option value="Pets">Pets</option>
                             <option value="Documents">Documents</option>
                             <option value="Gadgets">Gadgets</option>
@@ -115,6 +119,7 @@ const AddLostAndFoundItem = () => {
                         <input
                             type="text"
                             name="location"
+                            defaultValue={location}
                             required
                             placeholder="Enter location"
                             className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
@@ -125,10 +130,8 @@ const AddLostAndFoundItem = () => {
                     <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Date Lost/Found</label>
                         <DatePicker
-                            // showIcon
-                            name="date"
+                            name='date'
                             selected={startDate}
-                            defaultValue="yyyy/mm/dd"
                             onChange={(date) => setStartDate(date)}
                             className="w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                             wrapperClassName="w-full"
@@ -143,7 +146,7 @@ const AddLostAndFoundItem = () => {
                             type="text"
                             name="contactName"
                             readOnly
-                            value={user?.displayName}
+                            defaultValue={contactName}
                             required
                             className="block w-full px-4 py-3 rounded-xl bg-gray-100 border border-gray-300 shadow-sm text-gray-800"
                         />
@@ -154,7 +157,7 @@ const AddLostAndFoundItem = () => {
                             type="email"
                             name="contactEmail"
                             readOnly
-                            value={user?.email}
+                            defaultValue={contactEmail}
                             className="block w-full px-4 py-3 rounded-xl bg-gray-100 border border-gray-300 shadow-sm text-gray-800"
                         />
                     </div>
@@ -165,7 +168,7 @@ const AddLostAndFoundItem = () => {
                             type="submit"
                             className="w-full py-3 px-5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:from-indigo-600 hover:to-purple-700 focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                         >
-                            Add Post
+                            Updated Items
                         </button>
                     </div>
                 </form>
@@ -174,4 +177,4 @@ const AddLostAndFoundItem = () => {
     );
 };
 
-export default AddLostAndFoundItem;
+export default UpdateItems;
