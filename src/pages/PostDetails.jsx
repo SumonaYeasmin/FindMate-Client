@@ -113,10 +113,11 @@ const PostDetails = () => {
                                 <DatePicker
                                     name='recoveredDate'
                                     selected={recoveredDate}
+                                    placeholderText='Select Date'
                                     onChange={(date) => setRecoveredDate(date)}
                                     className="mt-1 p-2 w-full border border-gray-300 rounded-md"
                                     wrapperClassName="w-full"
-                                    dateFormat="MM/dd/yyyy"
+                                    dateFormat="yyyy/MM/dd"
                                     required
                                 />
                             </div>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
@@ -9,7 +9,7 @@ const UpdateItems = () => {
 
     const loaderData = useLoaderData();
     const [startDate, setStartDate] = useState(loaderData.date);
-    // console.log(loaderData);
+    const navigate = useNavigate();
     const { _id, category, contactEmail, contactName, description, location, postType, thumbnail, title, date } = loaderData;
 
     const handleUpdated = (e) => {
@@ -26,13 +26,14 @@ const UpdateItems = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     toast.success('Item updated successfully!');
+                    navigate('/myItems');
                 }
             })
             .catch(error => {
-                console.error(error);
+                // console.error(error);
                 toast.error(`Failed to update items: ${error.code}`);
             });
     };
