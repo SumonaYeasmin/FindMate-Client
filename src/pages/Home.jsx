@@ -1,4 +1,6 @@
+import CallToAction from "./CallToAction";
 import Slider from "./Slider";
+import Testimonial from "./Testimonial";
 
 
 const Home = () => {
@@ -6,6 +8,8 @@ const Home = () => {
         <div>
            
            <Slider />
+           <CallToAction />
+           <Testimonial />
         </div>
     );
 };

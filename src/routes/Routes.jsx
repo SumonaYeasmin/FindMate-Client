@@ -11,7 +11,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddLostAndFoundItem from "../pages/AddLostAndFoundItem";
 import LostAndFoundItems from "../pages/LostAndFoundItems";
-import ItemDetails from "../pages/ItemDetails";
+import ItemDetails from "../pages/PostDetails";
 
   const router = createBrowserRouter([
     {
