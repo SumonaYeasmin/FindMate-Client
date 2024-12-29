@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const ManageMyItems = () => {
     const { user } = useContext(AuthContext);
@@ -19,6 +20,49 @@ const ManageMyItems = () => {
 
     // Filter items based on the logged-in user's email
     //   const manageMyItems = myItems.filter((myItem) => myItem.email === user.email);
+
+    const handleDelete = (id) => {
+        console.log("Delete functionality will be here", id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/allItems/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+
+                            const remainingItems = manageMyItems.filter(item => item._id !== id);
+                            setManageMyItems(remainingItems);
+
+                            Swal.fire({
+                                icon: "success",
+                                title: "Deleted!",
+                                text: "Your item has been deleted."
+                            })
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Failed!",
+                            text: "Failed to delete the item."
+                        })
+                    })
+            }
+        });
+
+    };
 
     return (
         <div className="container mx-auto p-4">
@@ -43,7 +87,7 @@ const ManageMyItems = () => {
                         </thead>
                         <tbody>
                             {manageMyItems.map((item, idx) => (
-                                <tr key={item.id} className="bg-white border-b">
+                                <tr key={item._id} className="bg-white border-b">
                                     <td className="px-4 py-4 text-sm text-gray-700">{idx + 1}</td>
                                     <td className="px-4 py-4 text-sm text-gray-700">{item.title}</td>
                                     <td className="px-4 py-4 text-sm text-gray-700">{item.category}</td>
@@ -56,6 +100,7 @@ const ManageMyItems = () => {
                                             Update
                                         </button>
                                         <button
+                                            onClick={() => handleDelete(item._id)}
                                             className="text-red-500 hover:text-red-700"
                                         >
                                             Delete

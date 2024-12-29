@@ -8,8 +8,8 @@ const Home = () => {
         <div>
            
            <Slider />
-           <CallToAction />
            <Testimonial />
+           <CallToAction />
         </div>
     );
 };

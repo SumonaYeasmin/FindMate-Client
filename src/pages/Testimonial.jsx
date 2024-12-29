@@ -1,6 +1,6 @@
 const Testimonial = () => {
     return (
-        <div className="bg-gradient-to-r from-blue-100 to-purple-100 py-16">
+        <div className="bg-gradient-to-r from-blue-100 to-purple-100 py-16 container mx-auto">
             <div className="container mx-auto px-6 lg:px-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">
                     What Our Users Say

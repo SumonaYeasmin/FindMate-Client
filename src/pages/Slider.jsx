@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 const Slider = () => {
     return (
-        <div className="my-16">
+        <div className="my-16 container mx-auto">
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 navigation
