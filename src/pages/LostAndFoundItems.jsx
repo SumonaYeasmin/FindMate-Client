@@ -3,7 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const LostAndFoundItems = () => {
     const allItems = useLoaderData();
-    console.log(allItems);
+    // console.log(allItems);
 
     // const {thumbnail, title, description, category, location} = allItems;
     return (

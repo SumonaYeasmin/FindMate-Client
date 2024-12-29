@@ -24,15 +24,14 @@ import ItemDetails from "../pages/PostDetails";
         },
         {
             path: "/myItems",
-            element:  <ManageMyItems></ManageMyItems>
+            element:  <ManageMyItems></ManageMyItems>,
         },
         {
             path: "/allItems",
             element:  <LostAndFoundItems />,
             loader: ()=> fetch('http://localhost:5000/allItems')
         },
-      
-      
+
         {
             path: "/addItems",
             element: <AddLostAndFoundItem></AddLostAndFoundItem>
