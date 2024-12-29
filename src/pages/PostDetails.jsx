@@ -1,17 +1,47 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { AuthContext } from '../context/AuthProvider';
+import { toast } from 'react-toastify';
 
 const PostDetails = () => {
+    const { user } = useContext(AuthContext);
     const data = useLoaderData();
-    const [recoveredLocation, setRecoveredLocation] = useState('');
+    const navigate = useNavigate();
     const [recoveredDate, setRecoveredDate] = useState(new Date());
     const [modalOpen, setModalOpen] = useState(false);
 
-    const handleSubmit = () => {
-        // এখানে আপনি ফর্ম সাবমিট করার জন্য API কল করতে পারেন বা ডাটাবেস আপডেট করতে পারেন
-        // ডাটাবেসে আইটেম আপডেট করা এবং নতুন তথ্য সেভ করা
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(data?.status === 'recovered') {
+            // console.log('Item already recovered!');
+            toast.error('Item already recovered!');
+            return;
+        }
+
+        const form = new FormData(e.target);
+        const initialData = Object.fromEntries(form.entries());
+        const itemId = data._id;
+        const recoveredItem = { ...initialData, itemId, recoveredPersonThumbnail: user.photoURL };
+        // console.log(recoveredItem);
+
+        fetch('http://localhost:5000/recoveredItems', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(recoveredItem),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                toast.success('Item recovered successfully!');
+                navigate('/allRecovered');
+            })
+
         setModalOpen(false);
     };
 
@@ -60,58 +90,82 @@ const PostDetails = () => {
                     <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                         <h3 className="font-bold text-lg mb-4">Recover Item Details</h3>
 
-                        {/* Recovered Location */}
-                        <div className="mb-4">
-                            <label htmlFor="recoveredLocation" className="block text-sm font-medium text-gray-700">
-                                Recovered Location
-                            </label>
-                            <input
-                                type="text"
-                                id="recoveredLocation"
-                                value={recoveredLocation}
-                                onChange={(e) => setRecoveredLocation(e.target.value)}
-                                className="mt-1 p-2 w-full border border-gray-300 rounded-md"
-                                placeholder="Enter location where the item was received"
-                            />
-                        </div>
+                        <form onSubmit={handleSubmit}>
+                            {/* Recovered Location */}
+                            <div className="mb-4">
+                                <label htmlFor="recoveredLocation" className="block text-sm font-medium text-gray-700">
+                                    Recovered Location
+                                </label>
+                                <input
+                                    type="text"
+                                    name="recoveredLocation"
+                                    className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                                    placeholder="Enter location where the item was received"
+                                    required
+                                />
+                            </div>
 
-                        {/* Recovered Date */}
-                        <div className="mb-4 w-full">
-                            <label htmlFor="recoveredDate" className="block text-sm font-medium text-gray-700">
-                                Date
-                            </label>
-                            <DatePicker
-                                selected={recoveredDate}
-                                onChange={(date) => setRecoveredDate(date)}
-                                className="mt-1 p-2 w-full border border-gray-300 rounded-md"
-                                wrapperClassName="w-full"
-                                dateFormat="MM/dd/yyyy"
-                            />
-                        </div>
+                            {/* Recovered Date */}
+                            <div className="mb-4 w-full">
+                                <label htmlFor="recoveredDate" className="block text-sm font-medium text-gray-700">
+                                    Date
+                                </label>
+                                <DatePicker
+                                    name='recoveredDate'
+                                    selected={recoveredDate}
+                                    onChange={(date) => setRecoveredDate(date)}
+                                    className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                                    wrapperClassName="w-full"
+                                    dateFormat="MM/dd/yyyy"
+                                    required
+                                />
+                            </div>
 
-                        {/* Recovered Person Info */}
-                        <div className="mb-4">
-                            <p><strong>Name:</strong> {data.contactName}</p>
-                            <p><strong>Email:</strong> {data.contactEmail}</p>
-                            <img
-                                src={data.thumbnail}
-                                alt="Recovered Person"
-                                className="w-12 h-12 rounded-full mt-2"
-                            />
-                        </div>
+                            {/* Recovered Person Info */}
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">Name</label>
+                                    <input
+                                        type="text"
+                                        name='recoveredPersonName'
+                                        value={user.displayName}
+                                        readOnly
+                                        className="mt-1 p-2 w-full border border-gray-300 rounded-md bg-gray-100"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">Email</label>
+                                    <input
+                                        type="email"
+                                        name='recoveredPersonEmail'
+                                        value={user.email}
+                                        readOnly
+                                        className="mt-1 p-2 w-full border border-gray-300 rounded-md bg-gray-100"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">Profile Picture</label>
+                                    <img
+                                        src={user.photoURL}
+                                        alt="User"
+                                        className="w-16 h-16 rounded-full border border-gray-300 mt-2"
+                                    />
+                                </div>
+                            </div>
 
-                        <div className="flex justify-end space-x-2">
-                            <button
-                                onClick={() => setModalOpen(false)}
-                                className="btn bg-gray-300 hover:bg-gray-500 text-black">
-                                Close
-                            </button>
-                            <button
-                                onClick={handleSubmit}
-                                className="btn bg-blue-500 hover:bg-blue-700 text-white">
-                                Submit
-                            </button>
-                        </div>
+
+                            <div className="flex justify-end space-x-2">
+                                <button
+                                    onClick={() => setModalOpen(false)}
+                                    className="btn bg-gray-300 hover:bg-gray-500 text-black">
+                                    Close
+                                </button>
+                                <button
+                                    className="btn bg-blue-500 hover:bg-blue-700 text-white">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}

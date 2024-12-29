@@ -18,9 +18,6 @@ const ManageMyItems = () => {
             })
     }, [user?.email])
 
-    // Filter items based on the logged-in user's email
-    //   const manageMyItems = myItems.filter((myItem) => myItem.email === user.email);
-
     const handleDelete = (id) => {
         console.log("Delete functionality will be here", id);
         Swal.fire({
