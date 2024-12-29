@@ -9,9 +9,9 @@ const LostAndFoundItems = () => {
     return (
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
             {
-                allItems.map(item => (
-                    <div className="my-10 flex justify-center items-center">
-                        <div className=" bg-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out w-full">
+                allItems.map((item) => 
+                    <div key={item._id} className="my-10 flex justify-center items-center">
+                        <div  className=" bg-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out w-full">
                             {/* Card Image */}
                             <img
                                 src={item.thumbnail}
@@ -48,7 +48,7 @@ const LostAndFoundItems = () => {
                             </div>
                         </div>
                     </div>
-                ))
+                )
             }
         </div>
     );

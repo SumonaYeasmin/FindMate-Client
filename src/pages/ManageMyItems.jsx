@@ -4,9 +4,9 @@ import { AuthContext } from "../context/AuthProvider";
 
 const ManageMyItems = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
     const [manageMyItems, setManageMyItems] = useState([]);
-    console.log(manageMyItems);
+    // console.log(manageMyItems);
 
     useEffect(() => {
         fetch(`http://localhost:5000/allItems/email/${user?.email}`)
