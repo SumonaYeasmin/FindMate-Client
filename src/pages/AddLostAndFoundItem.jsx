@@ -3,11 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
+import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 const AddLostAndFoundItem = () => {
     const { user } = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
+    const axiosSecure = useAxiosSecure();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,16 +19,36 @@ const AddLostAndFoundItem = () => {
         const initialData = Object.fromEntries(form.entries());
         // console.log(initialData);
 
-        fetch("http://localhost:5000/allItems", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(initialData),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.insertedId) {
+        // fetch("http://localhost:5000/allItems", {
+        //     method: "POST",
+        //     headers: {
+        //         "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify(initialData),
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         if (data.insertedId) {
+        //             toast.success("Items added successfully in the database!");
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         toast.error(`Failed to create items: ${error.message}`);
+        //     });
+
+        // axios.post("http://localhost:5000/allItems", initialData, { withCredentials: true })
+        //     .then((res) => {
+        //         if (res.data.insertedId) {
+        //             toast.success("Items added successfully in the database!");
+        //         }
+        //     })
+        //     .catch((error) => {
+        //         toast.error(`Failed to create items: ${error.message}`);
+        //     });
+        
+        axiosSecure.post("/allItems", initialData)
+            .then((res) => {
+                if (res.data.insertedId) {
                     toast.success("Items added successfully in the database!");
                 }
             })

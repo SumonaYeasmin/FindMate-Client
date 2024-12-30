@@ -42,6 +42,7 @@ const PostDetails = () => {
                 navigate('/allRecovered');
             })
 
+
         setModalOpen(false);
     };
 

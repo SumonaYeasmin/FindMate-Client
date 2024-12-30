@@ -2,19 +2,31 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageMyItems = () => {
     const { user } = useContext(AuthContext);
     // console.log(user);
+    const axiosSecure = useAxiosSecure();
+    // const [manageMyItems, setManageMyItems] = useState([]);
     const [manageMyItems, setManageMyItems] = useState([]);
     // console.log(manageMyItems);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allItems/email/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                setManageMyItems(data)
+        // fetch(`http://localhost:5000/allItems/email/${user?.email}`, {withcredentials: true})
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         setManageMyItems(data)
+        //     })
+
+        axiosSecure.get(`/allItems/email/${user?.email}`)
+            .then(res => {
+                // console.log(res.data);
+                setManageMyItems(res.data);
+            })
+            .catch(error => {
+                console.error(error);
             })
     }, [user?.email])
 

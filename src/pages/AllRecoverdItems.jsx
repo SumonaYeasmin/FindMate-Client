@@ -1,19 +1,30 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AllRecoveredItems = () => {
     const { user } = useContext(AuthContext);
     const [manageMyItems, setManageMyItems] = useState([]);
     const [isTableLayout, setIsTableLayout] = useState(true);
+    const axiosSecure = useAxiosSecure();
 
     useEffect(() => {
         if (user?.email) {
-            // fetch(`http://localhost:5000/recoveredItems/email/${user?.email}`)
+            // fetch(`http://localhost:5000/recoveredItems/email/${user?.email}`,)
             //     .then((res) => res.json())
             //     .then((data) => setManageMyItems(data));
-            axios.get(`http://localhost:5000/recoveredItems/email/${user?.email}`, {withCredentials: true})
-                .then((res) => setManageMyItems(res.data));
+
+            // axios.get(`http://localhost:5000/recoveredItems/email/${user?.email}`, { withCredentials: true })
+            //     .then((res) => setManageMyItems(res.data));
+
+            axiosSecure.get(`/recoveredItems/email/${user?.email}`)
+                .then((res) => {
+                    setManageMyItems(res.data)
+                })
+                .catch((error) => {
+                    console.error(error)
+                });
         }
     }, [user?.email]);
 
