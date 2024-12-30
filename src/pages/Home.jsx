@@ -1,3 +1,4 @@
+import LatestLostAndFindItems from "../components/LatestLostAndFindItems";
 import CallToAction from "./CallToAction";
 import Slider from "./Slider";
 import Testimonial from "./Testimonial";
@@ -8,6 +9,7 @@ const Home = () => {
         <div>
            
            <Slider />
+           <LatestLostAndFindItems />
            <Testimonial />
            <CallToAction />
         </div>
