@@ -68,7 +68,7 @@ const Navbar = () => {
                             {
                                 user && <img
                                     data-tooltip-id="my-tooltip-1"
-                                    alt="Photo"
+                                    alt="Profile"
                                     src={
                                         user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                                     } />

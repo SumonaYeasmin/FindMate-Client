@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
+import axios from "axios";
 
 const AllRecoveredItems = () => {
     const { user } = useContext(AuthContext);
@@ -8,9 +9,11 @@ const AllRecoveredItems = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/recoveredItems/email/${user?.email}`)
-                .then((res) => res.json())
-                .then((data) => setManageMyItems(data));
+            // fetch(`http://localhost:5000/recoveredItems/email/${user?.email}`)
+            //     .then((res) => res.json())
+            //     .then((data) => setManageMyItems(data));
+            axios.get(`http://localhost:5000/recoveredItems/email/${user?.email}`, {withCredentials: true})
+                .then((res) => setManageMyItems(res.data));
         }
     }, [user?.email]);
 
