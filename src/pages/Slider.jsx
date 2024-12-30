@@ -23,10 +23,10 @@ const Slider = () => {
                 {/* https://i.ibb.co.com/Nt9QthK/stock-photo-inspiration-showing-sign-lost-found-business-overview-things-left-may-1.jpg */}
                 {/* Slide 1 */}
                 <SwiperSlide>
-                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center ">
                         <img
                             src="https://i.ibb.co.com/1TrYQTm/stock-photo-hand-writing-sign-lost-found-business-approach-things-left-may.jpg"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover brightness-50"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center h-full w-full">
                             <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text text-white drop-shadow-lg text-center">
@@ -41,10 +41,10 @@ const Slider = () => {
 
                 {/* Slide 2 */}
                 <SwiperSlide>
-                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center ">
                         <img
                             src="https://i.ibb.co.com/Wng4fhk/360-F-129739783-COm-Us-Upok-VIc-IAw-Lq4a-Ut-Vl-C5-Gf573-J9.jpg"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover brightness-50"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center w-full h-full">
                             <h2 className="text-3xl md:text-5xl font-extrabold text-transparent text-white bg-clip-text drop-shadow-lg text-center">
@@ -60,10 +60,10 @@ const Slider = () => {
 
                 {/* Slide 3 */}
                 <SwiperSlide>
-                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center ">
                         <img
                             src="https://i.ibb.co.com/ZmBQfVg/photo-1626010448982-0fec79ed1979.jpg"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover brightness-50"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center w-full h-full">
                             <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text text-white drop-shadow-lg text-center">
@@ -80,10 +80,10 @@ const Slider = () => {
 
                 {/* Slide 4 */}
                 <SwiperSlide>
-                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center brightness-75">
+                    <div className="relative h-[300px] md:h-[450px] xl:h-[550px] flex items-center justify-center ">
                         <img
                             src="https://i.ibb.co.com/dg1HZ5d/istockphoto-501689763-612x612.jpg"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover brightness-50"
                         />
                         <div className="absolute px-10 md:px-28 flex flex-col justify-center items-center w-full h-full">
                             <h2 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text text-white drop-shadow-lg text-center">

@@ -11,7 +11,7 @@ const LatestLostAndFindItems = () => {
                 setLatestItems(data);
             })
     }, []);
-    console.log(latestItems);
+    // console.log(latestItems);
 
     return (
         <div className='container mx-auto px-2 mb-10'>
