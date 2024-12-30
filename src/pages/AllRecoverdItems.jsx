@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 const AllRecoveredItems = () => {
     const { user } = useContext(AuthContext);
     const [manageMyItems, setManageMyItems] = useState([]);
+    const [isTableLayout, setIsTableLayout] = useState(true);
 
     useEffect(() => {
         if (user?.email) {
@@ -17,12 +18,23 @@ const AllRecoveredItems = () => {
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-semibold mb-4 text-center">Recovered Items</h1>
 
+            {/* Layout Toggle Button */}
+            <div className="flex justify-end mb-4">
+                <button
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-200"
+                    onClick={() => setIsTableLayout(!isTableLayout)}
+                >
+                    {isTableLayout ? "Switch to Card View" : "Switch to Table View"}
+                </button>
+            </div>
+
             {/* If no items found */}
             {manageMyItems.length === 0 ? (
                 <div className="text-center text-lg text-gray-500">
                     No recovered items found!
                 </div>
-            ) : (
+            ) : isTableLayout ? (
+                // Table Layout
                 <div className="overflow-x-auto border-l border-r border-t rounded-lg">
                     <table className="min-w-full table-auto border-collapse">
                         <thead className="bg-gray-100">
@@ -56,6 +68,30 @@ const AllRecoveredItems = () => {
                             ))}
                         </tbody>
                     </table>
+                </div>
+            ) : (
+                // Card Layout
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {manageMyItems.map((item, idx) => (
+                        <div
+                            key={idx}
+                            className="bg-white shadow-md rounded-lg overflow-hidden border hover:shadow-lg transition duration-200"
+                        >
+                            <img
+                                src={item.recoveredPersonThumbnail}
+                                alt={item.recoveredPersonName}
+                                className="w-full h-40 object-cover"
+                            />
+                            <div className="p-4">
+                                <h2 className="text-lg font-semibold text-gray-800">{item.recoveredPersonName}</h2>
+                                <p className="text-sm text-gray-600">Email: {item.recoveredPersonEmail}</p>
+                                <p className="text-sm text-gray-600">
+                                    Date: {new Date(item.recoveredDate).toLocaleDateString()}
+                                </p>
+                                <p className="text-sm text-gray-600">Location: {item.recoveredLocation}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             )}
         </div>
