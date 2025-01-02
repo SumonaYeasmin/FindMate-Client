@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 const LostAndFoundItems = () => {
@@ -15,6 +16,9 @@ const LostAndFoundItems = () => {
     // const {thumbnail, title, description, category, location} = allItems;
     return (
         <div>
+            <Helmet>
+                <title>Lost&FoundItems | FindMate</title>
+            </Helmet>
             <h1 className="text-center text-2xl font-semibold">Lost and Found Itmes</h1>
 
             {/* Search Field */}
@@ -38,10 +42,10 @@ const LostAndFoundItems = () => {
             }
 
             {/* Items Grid */}
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
+            <div className="px-2 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
                 {
                     filteredItems.map((item) =>
-                        <div key={item._id} className="my-10 flex justify-center items-center">
+                        <div key={item._id} className="my-1 flex justify-center items-center">
                             <div className=" bg-white rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out w-full">
                                 {/* Card Image */}
                                 <img

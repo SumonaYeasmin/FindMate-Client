@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -54,6 +55,9 @@ const Register = () => {
 
     return (
         <div className="flex flex-col justify-center my-8 shadow-lg rounded-lg p-8 max-w-md mx-auto">
+            <Helmet>
+                <title>Register | FindMate</title>
+            </Helmet>
             <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Register</h2>
             <form onSubmit={handleRegister} className="space-y-4">
 

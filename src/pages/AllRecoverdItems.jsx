@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const AllRecoveredItems = () => {
     const { user } = useContext(AuthContext);
@@ -30,6 +31,9 @@ const AllRecoveredItems = () => {
 
     return (
         <div className="container mx-auto p-4">
+            <Helmet>
+                <title>AllRecoverdItems | FindMate</title>
+            </Helmet>
             <h1 className="text-2xl font-semibold mb-4 text-center">Recovered Items</h1>
 
             {/* Layout Toggle Button */}

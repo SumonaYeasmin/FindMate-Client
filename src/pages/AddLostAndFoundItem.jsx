@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
 import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 
 const AddLostAndFoundItem = () => {
@@ -45,7 +46,7 @@ const AddLostAndFoundItem = () => {
         //     .catch((error) => {
         //         toast.error(`Failed to create items: ${error.message}`);
         //     });
-        
+
         axiosSecure.post("/allItems", initialData)
             .then((res) => {
                 if (res.data.insertedId) {
@@ -59,6 +60,9 @@ const AddLostAndFoundItem = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center  py-6">
+            <Helmet>
+                <title>AddLost&FoundItems | FindMate</title>
+            </Helmet>
             <div className="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-xl">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">
                     Add Lost & Found Item

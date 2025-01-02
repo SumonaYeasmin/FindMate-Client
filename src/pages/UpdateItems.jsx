@@ -4,6 +4,7 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const UpdateItems = () => {
 
@@ -40,6 +41,9 @@ const UpdateItems = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center  py-6">
+            <Helmet>
+                <title>UpdateItems | FindMate</title>
+            </Helmet>
             <div className="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-xl">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">
                     Updated Items

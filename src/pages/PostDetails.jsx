@@ -4,6 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const PostDetails = () => {
     const { user } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const PostDetails = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(data?.status === 'recovered') {
+        if (data?.status === 'recovered') {
             // console.log('Item already recovered!');
             toast.error('Item already recovered!');
             return;
@@ -88,6 +89,9 @@ const PostDetails = () => {
             {/* Modal */}
             {modalOpen && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+                    <Helmet>
+                        <title>PostDetails | FindMate</title>
+                    </Helmet>
                     <div className="bg-white p-6 rounded-lg shadow-lg w-96">
                         <h3 className="font-bold text-lg mb-4">Recover Item Details</h3>
 
