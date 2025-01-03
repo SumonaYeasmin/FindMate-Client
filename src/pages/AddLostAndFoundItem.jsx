@@ -20,7 +20,7 @@ const AddLostAndFoundItem = () => {
         const initialData = Object.fromEntries(form.entries());
         // console.log(initialData);
 
-        // fetch("http://localhost:5000/allItems", {
+        // fetch("https://find-mate-server-side.vercel.app/allItems", {
         //     method: "POST",
         //     headers: {
         //         "content-type": "application/json",
@@ -37,7 +37,7 @@ const AddLostAndFoundItem = () => {
         //         toast.error(`Failed to create items: ${error.message}`);
         //     });
 
-        // axios.post("http://localhost:5000/allItems", initialData, { withCredentials: true })
+        // axios.post("https://find-mate-server-side.vercel.app/allItems", initialData, { withCredentials: true })
         //     .then((res) => {
         //         if (res.data.insertedId) {
         //             toast.success("Items added successfully in the database!");

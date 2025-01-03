@@ -12,11 +12,11 @@ const AllRecoveredItems = () => {
 
     useEffect(() => {
         if (user?.email) {
-            // fetch(`http://localhost:5000/recoveredItems/email/${user?.email}`,)
+            // fetch(`https://find-mate-server-side.vercel.app/recoveredItems/email/${user?.email}`,)
             //     .then((res) => res.json())
             //     .then((data) => setManageMyItems(data));
 
-            // axios.get(`http://localhost:5000/recoveredItems/email/${user?.email}`, { withCredentials: true })
+            // axios.get(`https://find-mate-server-side.vercel.app/recoveredItems/email/${user?.email}`, { withCredentials: true })
             //     .then((res) => setManageMyItems(res.data));
 
             axiosSecure.get(`/recoveredItems/email/${user?.email}`)

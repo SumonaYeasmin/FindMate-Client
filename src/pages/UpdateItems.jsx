@@ -17,8 +17,8 @@ const UpdateItems = () => {
         e.preventDefault();
         const form = new FormData(e.target);
         const updatedData = Object.fromEntries(form.entries());
-        console.log(updatedData);
-        fetch(`http://localhost:5000/allItems/${_id}`, {
+        // console.log(updatedData);
+        fetch(`https://find-mate-server-side.vercel.app/allItems/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

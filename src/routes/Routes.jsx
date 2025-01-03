@@ -14,11 +14,13 @@ import LostAndFoundItems from "../pages/LostAndFoundItems";
 import ItemDetails from "../pages/PostDetails";
 import UpdateItems from "../pages/UpdateItems";
 import PrivateRoute from "../pages/PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayouts />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/allItems",
         element: <LostAndFoundItems />,
-        loader: () => fetch('http://localhost:5000/allItems')
+        loader: () => fetch('https://find-mate-server-side.vercel.app/allItems')
       },
 
       {
@@ -45,12 +47,12 @@ const router = createBrowserRouter([
       {
         path: "/items/:id",
         element: <PrivateRoute><ItemDetails /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allItems/${params.id}`)
+        loader: ({ params }) => fetch(`https://find-mate-server-side.vercel.app/allItems/${params.id}`)
       },
       {
         path: '/updatedItems/:id',
         element: <PrivateRoute><UpdateItems /></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allItems/${params.id}`)
+        loader: ({ params }) => fetch(`https://find-mate-server-side.vercel.app/allItems/${params.id}`)
       },
       {
         path: '/login',

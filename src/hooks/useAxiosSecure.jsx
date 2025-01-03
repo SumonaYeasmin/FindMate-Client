@@ -6,7 +6,7 @@ import { AuthContext } from '../context/AuthProvider';
 
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://find-mate-server-side.vercel.app',
     withCredentials: true,
 });
 
@@ -21,7 +21,7 @@ const useAxiosSecure = () => {
             },
             (error) => {
                 const status = error.response?.status;
-                console.log(status);
+                // console.log(status);
 
                 if (status === 401) {
                     // 401: Unauthorized

@@ -14,7 +14,7 @@ const ManageMyItems = () => {
     // console.log(manageMyItems);
 
     useEffect(() => {
-        // fetch(`http://localhost:5000/allItems/email/${user?.email}`, {withcredentials: true})
+        // fetch(`https://find-mate-server-side.vercel.app/allItems/email/${user?.email}`, {withcredentials: true})
         //     .then(res => res.json())
         //     .then(data => {
         //         console.log(data);
@@ -32,7 +32,7 @@ const ManageMyItems = () => {
     }, [user?.email])
 
     const handleDelete = (id) => {
-        console.log("Delete functionality will be here", id);
+        // console.log("Delete functionality will be here", id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -43,12 +43,12 @@ const ManageMyItems = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/allItems/${id}`, {
+                fetch(`https://find-mate-server-side.vercel.app/allItems/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
 
                             const remainingItems = manageMyItems.filter(item => item._id !== id);

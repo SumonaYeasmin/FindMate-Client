@@ -5,7 +5,7 @@ const LatestLostAndFindItems = () => {
     const [latestItems, setLatestItems] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/latestItems')
+        fetch('https://find-mate-server-side.vercel.app/latestItems')
             .then(res => res.json())
             .then(data => {
                 setLatestItems(data);
@@ -35,7 +35,7 @@ const LatestLostAndFindItems = () => {
                         </div>
                         <Link 
                             to={`/items/${item._id}`} 
-                            className="block mt-4 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white py-2 px-4 rounded-lg shadow hover:from-indigo-600 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1"
+                            className="block mx-auto mt-4 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white py-2 px-4 rounded-lg shadow hover:from-indigo-600 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 text-center"
                         >
                             View Details
                         </Link>
