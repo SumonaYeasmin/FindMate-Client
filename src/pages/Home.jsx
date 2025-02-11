@@ -5,6 +5,7 @@ import Slider from "./Slider";
 import Testimonial from "./Testimonial";
 import FAQ from "./FAQ";
 import { Helmet } from "react-helmet";
+import HowItWorks from "../components/HowItWorks";
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
             </motion.div>
             <LatestLostAndFindItems />
             <Testimonial />
+            <HowItWorks></HowItWorks>
             <FAQ />
         </div>
     );
