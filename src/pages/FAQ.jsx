@@ -8,15 +8,15 @@ const FAQ = () => {
   };
 
   return (
-    <div className="mt-16 bg-gradient-to-r from-blue-200 to-purple-300 py-16">
-      <div className="container mx-auto px-6 lg:px-16">
+    <div className="mt-16  py-16">
+      <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-10">
           Frequently Asked Questions
         </h2>
         <div className="space-y-6">
           {/* Question 1 */}
           <div
-            className="bg-white p-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-white p-6 rounded-lg border shadow-lg transition-all duration-300 transform hover:scale-105"
             onClick={() => toggleAnswer(0)}
           >
             <h3 className="text-lg font-semibold text-gray-800 cursor-pointer">
@@ -30,7 +30,7 @@ const FAQ = () => {
           </div>
           {/* Question 2 */}
           <div
-            className="bg-white p-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-white p-6 rounded-lg border shadow-lg transition-all duration-300 transform hover:scale-105"
             onClick={() => toggleAnswer(1)}
           >
             <h3 className="text-lg font-semibold text-gray-800 cursor-pointer">
@@ -44,7 +44,7 @@ const FAQ = () => {
           </div>
           {/* Question 3 */}
           <div
-            className="bg-white p-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            className="bg-white p-6 rounded-lg border shadow-lg transition-all duration-300 transform hover:scale-105"
             onClick={() => toggleAnswer(2)}
           >
             <h3 className="text-lg font-semibold text-gray-800 cursor-pointer">
