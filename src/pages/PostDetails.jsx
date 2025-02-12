@@ -43,7 +43,7 @@ const PostDetails = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg">
+        <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg mt-16">
             <Helmet>
                 <title>PostDetails | FindMate</title>
             </Helmet>

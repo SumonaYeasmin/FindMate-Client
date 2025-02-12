@@ -25,7 +25,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-br from-green-300 via-blue-300 to-indigo-300 my-16">
+    <section className="py-12 bg-gradient-to-r from-blue-200 to-purple-300 my-16">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-8">How It Works</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
