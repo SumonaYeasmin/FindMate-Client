@@ -19,7 +19,7 @@ const LostAndFoundItems = () => {
             <Helmet>
                 <title>Lost&FoundItems | FindMate</title>
             </Helmet>
-            <h1 className="text-center text-2xl font-semibold">Lost and Found Itmes</h1>
+            <h1 className="text-center text-2xl font-semibold mt-7">Lost and Found Itmes</h1>
 
             {/* Search Field */}
             <div className="my-4 flex justify-center items-center">
@@ -28,7 +28,7 @@ const LostAndFoundItems = () => {
                     placeholder="Search by title or location"
                     value={searchText}
                     onChange={(e) => setSearchText(e.target.value)}
-                    className="w-full max-w-md p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-purple-500"
+                    className="w-full mb-4 max-w-md p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-purple-500"
                 />
             </div>
 

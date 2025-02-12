@@ -2,7 +2,7 @@
 
 const AboutUs = () => {
     return (
-        <div className="p-6 text-center bg-gray-200 px-2  text-black my-10 container mx-auto ">
+        <div className="p-6 text-center bg-gray-200 px-2  text-black my-16 container mx-auto ">
         <h1 className="text-3xl font-bold ">About FindMate</h1>
         <p className="mt-4 text-lg mx-auto">
           FindMate is a platform designed to help people find their lost items. 
