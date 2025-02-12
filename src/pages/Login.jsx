@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center my-8 shadow-lg rounded-lg p-8 max-w-md mx-auto">
+        <div className="flex flex-col justify-center bg-white my-8 shadow-lg rounded-lg p-8 max-w-md mx-auto">
             <Helmet>
                 <title>Login | FindMate</title>
             </Helmet>
@@ -49,14 +49,14 @@ const Login = () => {
                 {/* Email Field */}
                 <div>
                     <label htmlFor="email" className="block text-gray-700">Email</label>
-                    <input type="email" name="email" id="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your email"
+                    <input type="email" name="email" id="email" className="w-full bg-white px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your email"
                         required />
                 </div>
 
                 {/* Password Field  */}
                 <div>
                     <label htmlFor="password" className="block text-gray-700">Password</label>
-                    <input type="password" name="password" id="password" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your password" required />
+                    <input type="password" name="password" id="password" className="w-full bg-white px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Enter your password" required />
                     <label className="label">
                         <p className="label-text-alt link link-hover text-sm text-purple-600 hover:underline">Forgot password?</p>
                     </label>

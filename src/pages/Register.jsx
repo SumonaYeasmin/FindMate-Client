@@ -54,7 +54,7 @@ const Register = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center my-8 shadow-lg rounded-lg p-8 max-w-md mx-auto">
+        <div className="flex flex-col justify-center my-8 bg-white shadow-lg rounded-lg p-8 max-w-md mx-auto">
             <Helmet>
                 <title>Register | FindMate</title>
             </Helmet>
@@ -66,14 +66,14 @@ const Register = () => {
                     <label htmlFor="name" className="block text-gray-700">
                         Name
                     </label>
-                    <input type="text" id="name" name="name" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your name" required />
+                    <input type="text" id="name" name="name" className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your name" required />
                 </div>
                 {/* Photo URL Field */}
                 <div>
                     <label htmlFor="photoURL" className="block text-gray-700">
                         Photo URL
                     </label>
-                    <input type="text" id="photoURL" name="photoUrl" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your photo URL" required />
+                    <input type="text" id="photoURL" name="photoUrl" className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your photo URL" required />
                 </div>
 
                 {/* Email Field */}
@@ -81,7 +81,7 @@ const Register = () => {
                     <label htmlFor="email" className="block text-gray-700">
                         Email
                     </label>
-                    <input type="email" id="email" name="email" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required />
+                    <input type="email" id="email" name="email" className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your email" required />
                 </div>
 
                 {/* Password Field */}
@@ -89,7 +89,7 @@ const Register = () => {
                     <label htmlFor="password" className="block text-gray-700">
                         Password
                     </label>
-                    <input type={showPassword ? 'text' : 'password'} id="password" name="password" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password" required />
+                    <input type={showPassword ? 'text' : 'password'} id="password" name="password" className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter your password" required />
                     <a onClick={() => setShowPassword(!showPassword)} className="btn btn-xs absolute right-4 bottom-2">
                         {
                             showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
