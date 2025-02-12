@@ -40,12 +40,12 @@ const UpdateItems = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center  py-6">
+        <div className="min-h-screen flex items-center justify-center my-10 py-6 px-2">
             <Helmet>
                 <title>UpdateItems | FindMate</title>
             </Helmet>
             <div className="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-xl">
-                <h2 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">
+                <h2 className="text-3xl font-extrabold text-gray-800 mb-8 text-center">
                     Updated Items
                 </h2>
                 <form onSubmit={handleUpdated} className="space-y-6">
@@ -56,7 +56,7 @@ const UpdateItems = () => {
                             name="postType"
                             required
                             defaultValue={postType}
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         >
                             <option value="Lost">Lost</option>
                             <option value="Found">Found</option>
@@ -72,7 +72,7 @@ const UpdateItems = () => {
                             placeholder="Enter image URL"
                             defaultValue={thumbnail}
                             required
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         />
                     </div>
 
@@ -85,7 +85,7 @@ const UpdateItems = () => {
                             placeholder="Enter title"
                             defaultValue={title}
                             required
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         />
                     </div>
 
@@ -98,7 +98,7 @@ const UpdateItems = () => {
                             defaultValue={description}
                             rows="4"
                             required
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         ></textarea>
                     </div>
 
@@ -109,7 +109,7 @@ const UpdateItems = () => {
                             name="category"
                             required
                             defaultValue={category}
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         >
                             <option value="Pets">Pets</option>
                             <option value="Documents">Documents</option>
@@ -127,7 +127,7 @@ const UpdateItems = () => {
                             defaultValue={location}
                             required
                             placeholder="Enter location"
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         />
                     </div>
 
@@ -138,7 +138,7 @@ const UpdateItems = () => {
                             name='date'
                             selected={startDate}
                             onChange={(date) => setStartDate(date)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="w-full bg-white px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                             wrapperClassName="w-full"
                             dateFormat="yyyy/MM/dd"
                         />

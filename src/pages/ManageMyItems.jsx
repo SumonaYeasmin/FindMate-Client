@@ -14,13 +14,7 @@ const ManageMyItems = () => {
     // console.log(manageMyItems);
 
     useEffect(() => {
-        // fetch(`https://find-mate-server-side.vercel.app/allItems/email/${user?.email}`, {withcredentials: true})
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         setManageMyItems(data)
-        //     })
-
+  
         axiosSecure.get(`/allItems/email/${user?.email}`)
             .then(res => {
                 // console.log(res.data);
@@ -108,14 +102,14 @@ const ManageMyItems = () => {
                                     <td className="px-4 py-4 text-base text-gray-700">
                                         <Link to={`/updatedItems/${item._id}`}>
                                             <button
-                                                className="bg-blue-500 text-white py-1 md:py-2 px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                                                className="bg-blue-500 text-white py-1 md:py-2 px-1 lg:px-4 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-300 text-sm md:text-base mb-2"
                                             >
                                                 Update
                                             </button>
                                         </Link>
                                         <button
                                             onClick={() => handleDelete(item._id)}
-                                            className="ml-2 bg-red-500 text-white py-1 md:py-2 px-4 rounded-md shadow-md hover:bg-red-600 transition-colors duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300"
+                                            className="md:ml-2 bg-red-500 text-white py-1 md:py-2 px-2 lg:px-4 rounded-md shadow-md hover:bg-red-600 transition-colors duration-200 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-300 text-sm md:text-base"
                                         >
                                             Delete
                                         </button>

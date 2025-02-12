@@ -94,7 +94,7 @@ const Navbar = () => {
                                 {links}
                             </ul>
                         </div>
-                        <a className=" -ml-2 text-2xl md:text-3xl">FindMate</a>
+                        <a className=" -ml-2 text-2xl md:text-3xl font-medium">FindMate</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -118,7 +118,7 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-56  shadow text-lg ">
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-60  shadow text-lg font-medium">
                                 {/* <li> */}
                                     <NavLink to="/myItems" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base  my-2 2xl:text-lg text-black px-3 rounded py-2' : ''}>Manage My Items</NavLink>
                                 {/* </li> */}

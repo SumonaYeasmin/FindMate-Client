@@ -44,33 +44,35 @@ const LostAndFoundItems = () => {
                 </p>
             )}
 
-            <div className="relative w-48" >
-                <input
-                    type="text" 
-                    value={selectedCategory || "Sort by Category"}
-                    readOnly
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none cursor-pointer bg-indigo-600 text-white"
-                />
-                {dropdownOpen && (
-                    <ul className="absolute w-full bg-white border border-gray-300 rounded-lg mt-1 shadow-lg max-h-40 overflow-y-auto z-10 text-black" >
-                        <li
-                            onClick={() => { setSelectedCategory(""); setDropdownOpen(false); }}
-                            className="p-2 hover:bg-gray-200 cursor-pointer"
-                        >
-                        </li>
-                        {categories.map(category => (
-                            <li
-                                key={category}
-                                onClick={() => { setSelectedCategory(category); setDropdownOpen(false); }}
-                                className="p-2 hover:bg-gray-200 cursor-pointer"
-                            >
-                                {category}
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
+<div className="container mx-auto px-4 flex justify-end mb-5">
+    <div className="relative w-48">
+        <input
+            type="text" 
+            value={selectedCategory || "Sort by Category"}
+            readOnly
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none cursor-pointer bg-indigo-600 text-white hover:bg-indigo-800"
+        />
+        {dropdownOpen && (
+            <ul className="absolute right-0 w-full bg-white border border-gray-300 rounded-lg mt-1 shadow-lg max-h-40 overflow-y-auto z-10 text-black">
+                <li
+                    onClick={() => { setSelectedCategory(""); setDropdownOpen(false); }}
+                    className="p-2 hover:bg-gray-200 cursor-pointer"
+                ></li>
+                {categories.map(category => (
+                    <li
+                        key={category}
+                        onClick={() => { setSelectedCategory(category); setDropdownOpen(false); }}
+                        className="p-2 hover:bg-gray-200 cursor-pointer"
+                    >
+                        {category}
+                    </li>
+                ))}
+            </ul>
+        )}
+    </div>
+</div>
+
 
 
             <div className="px-2 container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">

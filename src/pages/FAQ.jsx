@@ -9,7 +9,7 @@ const FAQ = () => {
 
   return (
     
-      <div className="container bg-gradient-to-r from-blue-100 to-purple-100 mx-auto px-6 py-10 my-10">
+      <div className="container bg-gradient-to-r from-blue-100 to-purple-100 mx-auto px-16 py-10 my-10">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-10">
           Frequently Asked Questions
         </h2>
