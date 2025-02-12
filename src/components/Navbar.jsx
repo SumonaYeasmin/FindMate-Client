@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import { toast } from "react-toastify";
 import { Tooltip } from "react-tooltip";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 
 
 const Navbar = () => {
     const { user, userLogOut } = useContext(AuthContext);
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleLogOut = () => {
         userLogOut()
@@ -17,6 +19,27 @@ const Navbar = () => {
                 toast.error(error.code);
             })
     }
+
+      // Theme Loaded localStorage 
+      useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            setIsDarkMode(true);
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            setIsDarkMode(false);
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    }, []);
+
+    // Theme Changes
+    const toggleTheme = () => {
+        const newTheme = !isDarkMode ? 'dark' : 'light';
+        setIsDarkMode(!isDarkMode);
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    };
+
 
     const links = (
         <div className="lg:flex gap-3 lg:gap-0 xl:gap-0 text-base md:text-lg lg:text-sm 2xl:text-lg font-semibold">
@@ -33,6 +56,19 @@ const Navbar = () => {
 
         <div className="sticky top-0 z-50 backdrop-blur-md bg-opacity-50 border-b">
             <div className="navbar  container mx-auto">
+
+            <div className="navbar container mx-auto px-4 relative">
+                <button
+                    onClick={toggleTheme}
+                    className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-white shadow-md transition-transform transform hover:scale-110 absolute top-20 right-5`}
+                >
+                    {isDarkMode ? (
+                        <MdOutlineLightMode size={24} />
+                    ) : (
+                        <MdOutlineDarkMode size={24} />
+                    )}
+                </button>
+
                 <div className="navbar-start z-50">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -91,6 +127,8 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </div>
+
+
                     <Tooltip
                         id="my-tooltip-1"
                         place="bottom"
@@ -105,8 +143,9 @@ const Navbar = () => {
                             <Link to="/login" className="text-sm md:text-lg btn px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-600 hover:to-indigo-600 rounded-lg hover:text-white transform transition duration-300 font-semibold">Login</Link>
                     }
                 </div>
-            </div>
         </div>
+            </div>
+            </div>
     );
 };
 
