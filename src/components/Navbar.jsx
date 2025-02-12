@@ -58,12 +58,11 @@ const Navbar = () => {
     return (
 
         <div className="sticky top-0 z-50 backdrop-blur-md bg-opacity-50 border-b ">
-            <div className="navbar  container mx-auto">
 
-                <div className="navbar container mx-auto px-4 relative">
+                <div className="navbar container mx-auto px-4 md:px-2 relative">
                     <button
                         onClick={toggleTheme}
-                        className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-black shadow-md transition-transform transform hover:scale-110 absolute top-20 2xl:top-24 right-5`}
+                        className={`w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-black shadow-md transition-transform transform hover:scale-110 absolute top-20 2xl:top-[85px] right-5`}
                     >
                         {isDarkMode ? (
                             <MdOutlineLightMode size={24} />
@@ -147,7 +146,6 @@ const Navbar = () => {
                         }
                     </div>
                 </div>
-            </div>
         </div>
     );
 };

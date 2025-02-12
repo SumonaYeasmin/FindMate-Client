@@ -26,7 +26,7 @@ const HowItWorks = () => {
 
   return (
     
-      <div className="container my-14 mx-auto text-center py-7">
+      <div className="container mt-10 mb-12 mx-auto text-center py-7 px-2">
         <h2 className="text-3xl font-bold mb-8">How It Works</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step) => (
