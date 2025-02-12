@@ -49,6 +49,9 @@ const Navbar = () => {
             <li>
                 <NavLink to="/allItems" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base md:text-lg lg:text-sm 2xl:text-lg' : ''}>Lost & Found Items</NavLink>
             </li>
+            <li>
+                <NavLink to="/aboutUs" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base md:text-lg lg:text-sm 2xl:text-lg' : ''}>About Us</NavLink>
+            </li>
         </div>
     );
 

@@ -15,6 +15,7 @@ import ItemDetails from "../pages/PostDetails";
 import UpdateItems from "../pages/UpdateItems";
 import PrivateRoute from "../pages/PrivateRoute";
 import ErrorPage from "../pages/ErrorPage";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
         path: "/allItems",
         element: <LostAndFoundItems />,
         loader: () => fetch('https://find-mate-server-side.vercel.app/allItems')
+      },
+
+      {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>
       },
 
       {

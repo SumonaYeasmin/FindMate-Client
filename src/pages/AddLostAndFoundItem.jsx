@@ -20,32 +20,6 @@ const AddLostAndFoundItem = () => {
         const initialData = Object.fromEntries(form.entries());
         // console.log(initialData);
 
-        // fetch("https://find-mate-server-side.vercel.app/allItems", {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json",
-        //     },
-        //     body: JSON.stringify(initialData),
-        // })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         if (data.insertedId) {
-        //             toast.success("Items added successfully in the database!");
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         toast.error(`Failed to create items: ${error.message}`);
-        //     });
-
-        // axios.post("https://find-mate-server-side.vercel.app/allItems", initialData, { withCredentials: true })
-        //     .then((res) => {
-        //         if (res.data.insertedId) {
-        //             toast.success("Items added successfully in the database!");
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         toast.error(`Failed to create items: ${error.message}`);
-        //     });
 
         axiosSecure.post("/allItems", initialData)
             .then((res) => {
@@ -69,13 +43,13 @@ const AddLostAndFoundItem = () => {
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Post Type */}
-                    <div>
+                    <div> 
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Post Type</label>
                         <select
                             name="postType"
                             required
                             defaultValue=''
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         >
                             <option disabled value="">Select post type</option>
                             <option value="Lost">Lost</option>
@@ -91,7 +65,7 @@ const AddLostAndFoundItem = () => {
                             name="thumbnail"
                             placeholder="Enter image URL"
                             required
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block bg-white w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
                         />
                     </div>
 
@@ -103,7 +77,7 @@ const AddLostAndFoundItem = () => {
                             name="title"
                             placeholder="Enter title"
                             required
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800 bg-white"
                         />
                     </div>
 
@@ -115,7 +89,7 @@ const AddLostAndFoundItem = () => {
                             placeholder="Enter description"
                             rows="4"
                             required
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800 bg-white"
                         ></textarea>
                     </div>
 
@@ -126,7 +100,7 @@ const AddLostAndFoundItem = () => {
                             name="category"
                             required
                             defaultValue=""
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800 bg-white"
                         >
                             <option disabled value="">Select Category</option>
                             <option value="Pets">Pets</option>
@@ -144,7 +118,7 @@ const AddLostAndFoundItem = () => {
                             name="location"
                             required
                             placeholder="Enter location"
-                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="block w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800 bg-white"
                         />
                     </div>
 
@@ -157,7 +131,7 @@ const AddLostAndFoundItem = () => {
                             selected={startDate}
                             defaultValue="yyyy/mm/dd"
                             onChange={(date) => setStartDate(date)}
-                            className="w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800"
+                            className="w-full px-4 py-3 rounded-xl border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-gray-800 bg-white"
                             wrapperClassName="w-full"
                             dateFormat="yyyy/MM/dd"
                         />
