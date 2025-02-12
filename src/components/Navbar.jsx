@@ -74,7 +74,7 @@ const Navbar = () => {
 
                     <div className="navbar-start z-50">
                         <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                            <div tabIndex={0} role="button" className="btn btn-ghost -ml-7  md:ml-0 lg:hidden">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-5 w-5"
@@ -94,7 +94,7 @@ const Navbar = () => {
                                 {links}
                             </ul>
                         </div>
-                        <a className="  text-2xl md:text-3xl">FindMate</a>
+                        <a className=" -ml-2 text-2xl md:text-3xl">FindMate</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -118,16 +118,16 @@ const Navbar = () => {
                             </div>
                             <ul
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                <li>
-                                    <NavLink to="/myItems" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base md:text-lg lg:text-sm 2xl:text-lg' : ''}>Manage My Items</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/addItems" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base md:text-lg lg:text-sm 2xl:text-lg' : ''}>Add Lost & Found Item</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/allRecovered" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base md:text-lg lg:text-sm 2xl:text-lg' : ''}>All Recoverd Items</NavLink>
-                                </li>
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-56  shadow text-lg ">
+                                {/* <li> */}
+                                    <NavLink to="/myItems" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base  my-2 2xl:text-lg text-black px-3 rounded py-2' : ''}>Manage My Items</NavLink>
+                                {/* </li> */}
+                                {/* <li> */}
+                                    <NavLink to="/addItems" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base 2xl:text-lg my-2 text-black px-3 rounded py-2' : ''}>Add Lost & Found Item</NavLink>
+                                {/* </li> */}
+                                {/* <li> */}
+                                    <NavLink to="/allRecovered" className={({ isActive }) => isActive ? 'bg-gradient-to-r from-purple-400 to-indigo-400 font-semibold text-base 2xl:text-lg text-black px-3 my-2 rounded py-2' : ''}>All Recoverd Items</NavLink>
+                                {/* </li> */}
                             </ul>
                         </div>
 
@@ -143,7 +143,7 @@ const Navbar = () => {
                             user ?
                                 <button onClick={handleLogOut} className="btn text-sm md:text-lg px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-600 hover:to-indigo-600 rounded-lg hover:text-white transform transition duration-300 font-semibold text-black">Log Out</button>
                                 :
-                                <Link to="/login" className="text-sm md:text-lg btn px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-600 hover:to-indigo-600 rounded-lg hover:text-white transform transition duration-300 font-semibold">Login</Link>
+                                <Link to="/login" className="text-sm md:text-lg btn px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-600 hover:to-indigo-600 rounded-lg hover:text-white transform transition duration-300 font-semibold text-black">Login</Link>
                         }
                     </div>
                 </div>

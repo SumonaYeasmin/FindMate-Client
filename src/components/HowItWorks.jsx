@@ -25,9 +25,9 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-12 my-16">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-8">How It Works</h2>
+    
+      <div className="container my-14 mx-auto text-center py-7">
+        <h2 className="text-3xl font-bold mb-8">How It Works</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step) => (
             <div key={step.id} className="p-6 bg-white shadow-lg rounded-2xl relative border">
@@ -41,7 +41,7 @@ const HowItWorks = () => {
           ))}
         </div>
       </div>
-    </section>
+  
   );
 };
 

@@ -8,8 +8,8 @@ const FAQ = () => {
   };
 
   return (
-    <div className="mt-16  py-16">
-      <div className="container mx-auto px-6">
+    
+      <div className="container bg-gradient-to-r from-blue-100 to-purple-100 mx-auto px-6 py-10 my-10">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-10">
           Frequently Asked Questions
         </h2>
@@ -58,7 +58,7 @@ const FAQ = () => {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

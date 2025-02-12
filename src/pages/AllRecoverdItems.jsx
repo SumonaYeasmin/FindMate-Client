@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
-import axios from "axios";
+
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { Helmet } from "react-helmet";
 
@@ -12,12 +12,7 @@ const AllRecoveredItems = () => {
 
     useEffect(() => {
         if (user?.email) {
-            // fetch(`https://find-mate-server-side.vercel.app/recoveredItems/email/${user?.email}`,)
-            //     .then((res) => res.json())
-            //     .then((data) => setManageMyItems(data));
-
-            // axios.get(`https://find-mate-server-side.vercel.app/recoveredItems/email/${user?.email}`, { withCredentials: true })
-            //     .then((res) => setManageMyItems(res.data));
+        
 
             axiosSecure.get(`/recoveredItems/email/${user?.email}`)
                 .then((res) => {
@@ -34,7 +29,7 @@ const AllRecoveredItems = () => {
             <Helmet>
                 <title>AllRecoverdItems | FindMate</title>
             </Helmet>
-            <h1 className="text-2xl font-semibold mb-4 text-center">Recovered Items</h1>
+            <h1 className="text-2xl font-semibold my-6 text-center">Recovered Items</h1>
 
             {/* Layout Toggle Button */}
             <div className="flex justify-end mb-4">
