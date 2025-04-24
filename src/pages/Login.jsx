@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center bg-white my-8 shadow-lg rounded-lg p-8 max-w-md mx-auto">
+        <div className="flex flex-col justify-center bg-white my-8 shadow-lg rounded-lg p-8 max-w-md mx-auto border border-gray-300">
             <Helmet>
                 <title>Login | FindMate</title>
             </Helmet>
