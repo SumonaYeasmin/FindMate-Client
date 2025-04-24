@@ -74,10 +74,10 @@ const Login = () => {
             <div className="flex justify-center mt-4">
                 <button
                     onClick={handleGoogleLogin}
-                    className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 btn-wide"
+                    className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 btn-wide"
                 >
-                    <img className='w-7' src={img} alt="" />
-                    Login with Google
+                    <img className="w-6 h-6" src={img} alt="Google logo" />
+                    <span>Login with Google</span>
                 </button>
             </div>
             <p className="text-gray-600 mt-3">

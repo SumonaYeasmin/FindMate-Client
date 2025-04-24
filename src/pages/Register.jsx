@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet';
+import img from '../assets/icons8-google-64.png'
 
 const Register = () => {
     const navigate = useNavigate();
@@ -105,8 +106,15 @@ const Register = () => {
             {/* handle Google Login */}
 
             <div className="flex justify-center mt-4">
-                <button onClick={handleGoogleLogin} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 btn-wide">Login with Google</button>
+                <button
+                    onClick={handleGoogleLogin}
+                    className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 btn-wide"
+                >
+                    <img className="w-6 h-6" src={img} alt="Google logo" />
+                    <span>Login with Google</span>
+                </button>
             </div>
+
             <p className="text-gray-600 mt-4 text-center">
                 Already have an account?{" "}
                 <Link to='/login'><span className="text-blue-700 font-bold text-base hover:underline cursor-pointer">
