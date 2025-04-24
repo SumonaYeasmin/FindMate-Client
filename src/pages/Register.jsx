@@ -54,7 +54,7 @@ const Register = () => {
     }
 
     return (
-        <div className="flex flex-col justify-center my-8 bg-white shadow-lg rounded-lg p-8 max-w-md mx-auto">
+        <div className="flex flex-col justify-center my-8 border border-gray-300 bg-white shadow-lg rounded-lg p-8 max-w-md mx-auto">
             <Helmet>
                 <title>Register | FindMate</title>
             </Helmet>
