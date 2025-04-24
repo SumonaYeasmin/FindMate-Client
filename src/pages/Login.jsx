@@ -3,6 +3,9 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { toast } from 'react-toastify';
 import { Helmet } from 'react-helmet';
+import img from '../assets/icons8-google-64.png'
+
+
 
 const Login = () => {
     const { loginUser, loginWithGoogle } = useContext(AuthContext);
@@ -67,10 +70,15 @@ const Login = () => {
                 >Login </button>
             </form>
 
-
             {/* Login with google */}
             <div className="flex justify-center mt-4">
-                <button onClick={handleGoogleLogin} className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 btn-wide">Login with Google</button>
+                <button
+                    onClick={handleGoogleLogin}
+                    className="flex items-center gap-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 btn-wide"
+                >
+                    <img className='w-7' src={img} alt="" />
+                    Login with Google
+                </button>
             </div>
             <p className="text-gray-600 mt-3">
                 New to this website? Please <Link to="/register"><span className="text-blue-600 font-bold hover:underline">Register</span></Link></p>
