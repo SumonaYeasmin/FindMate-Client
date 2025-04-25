@@ -37,7 +37,7 @@ const AddLostAndFoundItem = () => {
             <Helmet>
                 <title>AddLost&FoundItems | FindMate</title>
             </Helmet>
-            <div className="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-xl">
+            <div className="bg-white p-10 rounded-3xl shadow-2xl w-full max-w-xl border-2 mt-12">
                 <h2 className="text-4xl font-extrabold text-gray-800 mb-8 text-center">
                     Add Lost & Found Item
                 </h2>
