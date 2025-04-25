@@ -6,6 +6,8 @@ import Testimonial from "./Testimonial";
 import FAQ from "./FAQ";
 import { Helmet } from "react-helmet";
 import HowItWorks from "../components/HowItWorks";
+import CTASection from "./CTASection/CTASection";
+
 
 
 const Home = () => {
@@ -26,6 +28,7 @@ const Home = () => {
             <Testimonial />
             <HowItWorks></HowItWorks>
             <FAQ />
+            <CTASection></CTASection>
         </div>
     );
 };
