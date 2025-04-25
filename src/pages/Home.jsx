@@ -11,7 +11,6 @@ import HowItWorks from "../components/HowItWorks";
 const Home = () => {
     return (
 
-
         <div>
             <Helmet>
                 <title>Home | FindMate</title>

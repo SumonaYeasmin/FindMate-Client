@@ -18,8 +18,8 @@ const LatestLostAndFindItems = () => {
             {latestItems.length === 0 && <p>No items found!</p>}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {latestItems.map((item, idx) => (
-                    <div 
-                        key={idx} 
+                    <div
+                        key={idx}
                         className="bg-white p-4 shadow-md rounded-md transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
                     >
                         <img
@@ -33,8 +33,8 @@ const LatestLostAndFindItems = () => {
                             <p className="text-base text-gray-600 mt-1">Location: {item.location}</p>
                             <p className="text-base text-gray-600">Date: {item.date}</p>
                         </div>
-                        <Link 
-                            to={`/items/${item._id}`} 
+                        <Link
+                            to={`/items/${item._id}`}
                             className="block mx-auto mt-4 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white py-2 px-4 rounded-lg shadow hover:from-indigo-600 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 text-center"
                         >
                             View Details
@@ -43,7 +43,15 @@ const LatestLostAndFindItems = () => {
                 ))}
             </div>
             <div className='text-center mt-4'>
-                <Link to="/allItems" className="btn mt-4 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white py-2 px-16 rounded-lg shadow hover:from-indigo-600 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1">See All</Link>
+                <Link
+                    to="/allItems"
+                    className="btn mt-4 bg-gradient-to-r from-indigo-500 to-indigo-700 text-white py-2 px-16 rounded-lg shadow 
+                   hover:from-indigo-600 hover:to-indigo-800 
+                   focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 
+                   transition-all duration-300 ease-in-out hover:scale-105"
+                >
+                    See All
+                </Link>
             </div>
         </div>
     );

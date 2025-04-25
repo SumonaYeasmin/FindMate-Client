@@ -63,7 +63,7 @@ const LostAndFoundItems = () => {
                         value={selectedCategory || "Sort by Category"}
                         readOnly
                         onClick={() => setDropdownOpen(!dropdownOpen)}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none cursor-pointer bg-indigo-600 text-white hover:bg-indigo-800"
+                        className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none cursor-pointer bg-indigo-600 text-white transition-transform duration-100 hover:bg-indigo-800 hover:scale-105"
                     />
                     {dropdownOpen && (
                         <ul className="absolute right-0 w-full bg-white border border-gray-300 rounded-lg mt-1 shadow-lg max-h-40 overflow-y-auto z-10 text-black">
