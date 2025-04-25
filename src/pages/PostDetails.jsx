@@ -43,7 +43,7 @@ const PostDetails = () => {
     };
 
     return (
-        <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg mt-16">
+        <div className="max-w-4xl mx-auto border bg-gray-50 p-8 rounded-lg shadow-lg mt-16">
             <Helmet>
                 <title>PostDetails | FindMate</title>
             </Helmet>
@@ -86,7 +86,7 @@ const PostDetails = () => {
             <div className="mt-8">
                 <button
                     onClick={() => setModalOpen(true)}
-                    className={`btn w-full md:w-auto text-white px-6 py-2 rounded-md ${
+                    className={`btn w-full md:w-auto text-white px-6 py-2 rounded-md transition-transform duration-100 hover:scale-105 ${
                         data.postType === 'Lost' ? 'bg-red-500 hover:bg-red-700' : 'bg-green-500 hover:bg-green-700'
                     }`}
                 >
